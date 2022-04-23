@@ -290,6 +290,7 @@ function criaPlacar() {
             }
         }
     }
+    return placar;
 }
 
 const Telas = {
