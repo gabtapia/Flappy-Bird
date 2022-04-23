@@ -3,7 +3,7 @@ let frames = 0;
 const som_PONTO = new Audio();
 som_PONTO.src = './efeitos/ponto.wav';
 const som_PULO = new Audio();
-som_PONTO.src = './efeitos/pulo.wav';
+som_PULO.src = './efeitos/pulo.wav';
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/hit.wav';
 
