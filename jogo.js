@@ -358,10 +358,10 @@ Telas.JOGO = {
 
 Telas.GAME_OVER = {
     desenha() {
-        msgGameOver.desenha();
         bck.desenha();
         globais.flappyBird.desenha();
         globais.chao.desenha();
+        msgGameOver.desenha();
     }, 
     atualiza() {
         bck.desenha();
