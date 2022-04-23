@@ -118,7 +118,7 @@ const Telas = {
             msgGetReady.desenha();
         }, 
         click() {
-            mudaParaTela(telas.JOGO);
+            mudaParaTela(Telas.JOGO);
         }, 
         atualiza() {
 
