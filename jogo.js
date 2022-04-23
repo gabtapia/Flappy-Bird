@@ -217,9 +217,33 @@ function criaCanos() {
                     canos.largura, canos.altura, 
                     canoChaoX, canoChaoY, 
                     canos.largura, canos.altura
-                );     
+                );
+
+                par.canoCeu = {
+                    x: canoCeuX, 
+                    y: canos.altura + canoCeuY
+                }
+                par.canoChao = {
+                    x: canoChaoX, 
+                    y: canoChaoY
+                }
             })
 
+        }, 
+        temColisaoComOFlappyBird(par) {
+            const cabecaDoFlappy = globais.flappyBird.y;
+            const peDoFlappy = globais.flappyBird.y + globais.flappyBird.altura;
+            
+            if(globais.flappyBird.x >= par.x) {
+                if(cabecaDoFlappy <= par.canoCeu.y) {
+                    return true;
+                }
+
+                if(peDoFlappy >= par.canoChao.y) {
+                    return true;
+                }
+            }
+            return false;
         }, 
         pares: [], 
         atualiza() {
@@ -233,6 +257,10 @@ function criaCanos() {
 
             canos.pares.forEach(function(par) {
                 par.x = par.x - 2;
+
+                if(canos.temColisaoComOFlappyBird(par)) {
+                    mudaParaTela(Telas.INICIO);
+                }
 
                 if(par.x + canos.largura <= 0) {
                     canos.pares.shift();
@@ -255,8 +283,7 @@ const Telas = {
             bck.desenha();
             globais.flappyBird.desenha();
             globais.canos.desenha();
-            globais.chao.desenha();
-            // msgGetReady.desenha();
+            msgGetReady.desenha();
         }, 
         click() {
             mudaParaTela(Telas.JOGO);
@@ -272,12 +299,14 @@ Telas.JOGO = {
     desenha() {
         bck.desenha();
         globais.chao.desenha();
+        globais.chao.desenha();
         globais.flappyBird.desenha();
     }, 
     click() {
         globais.flappyBird.pula();
     }, 
     atualiza() {
+        globais.chao.atualiza();
         globais.chao.atualiza();
         globais.flappyBird.atualiza();
     }
