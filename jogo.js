@@ -99,6 +99,7 @@ function criaFlappyBird() {
         y: 50, 
         pulo: 4.6, 
         pula() {
+            som_PULO.play();
             flappyBird.velocidade = - flappyBird.pulo;
         }, 
         gravidade: 0.25, 
