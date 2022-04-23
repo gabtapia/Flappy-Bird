@@ -275,7 +275,7 @@ function criaCanos() {
                 par.x = par.x - 2;
 
                 if(canos.temColisaoComOFlappyBird(par)) {
-                    mudaParaTela(Telas.INICIO);
+                    mudaParaTela(Telas.GAME_OVER);
                 }
 
                 if(par.x + canos.largura <= 0) {
