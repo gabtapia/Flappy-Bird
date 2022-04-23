@@ -45,7 +45,11 @@ function criaChao() {
         x: 0, 
         y: canvas.height - 112, 
         atualiza() {
-            console.log('vamo mexer o chao');
+            const movimentoDoChao = 1;
+            const repeteEm = chao.largura / 2;
+            const movimentacao = chao.x - movimentoDoChao;
+
+            chao.x = movimentacao % repeteEm;
         }, 
         desenha() {
             ctx.drawImage(
