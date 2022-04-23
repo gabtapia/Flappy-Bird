@@ -356,15 +356,10 @@ Telas.JOGO = {
 
 Telas.GAME_OVER = {
     desenha() {
-        bck.desenha();
-        globais.flappyBird.desenha();
-        globais.chao.desenha();
         msgGameOver.desenha();
     }, 
     atualiza() {
-        bck.desenha();
-        globais.flappyBird.atualiza();
-        globais.chao.atualiza();
+
     }, 
     click() {
         mudaParaTela(Telas.INICIO);
