@@ -161,8 +161,9 @@ const Telas = {
         }, 
         desenha() {
             bck.desenha();
-            globais.chao.desenha();
             globais.flappyBird.desenha(); 
+
+            globais.chao.desenha();
             msgGetReady.desenha();
         }, 
         click() {
@@ -177,7 +178,7 @@ const Telas = {
 Telas.JOGO = {
     desenha() {
         bck.desenha();
-        chao.desenha();
+        globais.chao.desenha();
         globais.flappyBird.desenha();
     }, 
     click() {
