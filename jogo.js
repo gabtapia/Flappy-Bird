@@ -83,14 +83,69 @@ const flappyBird = {
     }
 }
 
-function loop() {
-    flappyBird.atualiza();
+const msgGetReady = {
+    spriteX: 134, 
+    spriteY: 0, 
+    largura: 174, 
+    altura: 152, 
+    x: (canvas.width / 2) - 174 / 2, 
+    y: canvas.height - 112, 
+    desenha() {
+        ctx.drawImage(
+            sprites, 
+            msgGetReady.spriteX, msgGetReady.spriteY, 
+            msgGetReady.largura, msgGetReady.altura, 
+            msgGetReady.x, msgGetReady.y, 
+            msgGetReady.largura, msgGetReady.altura
+        );
+    }
+}
 
-    bck.desenha();
-    chao.desenha();
-    flappyBird.desenha();
+//
+// Telas
+//
+let telaAtiva = {};
+function mudaParaTela(novaTela) {
+    telaAtiva = novaTela;
+}
+
+const Telas = {
+    INICIO: {
+        desenha() {
+            bck.desenha();
+            chao.desenha();
+            flappyBird.desenha(); 
+            msgGetReady.desenha();
+        }, 
+        click() {
+            mudaParaTela(telas.JOGO);
+        }, 
+        atualiza() {
+
+        }
+    }
+};
+
+Telas.JOGO = {
+    desenha() {
+    }, 
+    atualiza() {
+        flappyBird.atualiza();
+    }
+};
+
+function loop() {
+    telaAtiva.desenha();
+    telaAtiva.atualiza();
 
     requestAnimationFrame(loop);
 }
 
+window.addEventListener('click', function() {
+    if(telaAtiva.click) {
+        telaAtiva.click();
+    }
+});
+
+mudaParaTela(Telas.INICIO);
 loop();
