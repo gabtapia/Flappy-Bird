@@ -272,6 +272,26 @@ function criaCanos() {
     return canos;
 }
 
+function criaPlacar() {
+    const placar = {
+        pontuacao: 0, 
+        desenha() {
+            ctx.font = '35px "VT323"';
+            ctx.textAlign = 'right';
+            ctx.fillStyle = 'white';
+            ctx.fillText(`Hello World ${placar.pontuacao}`, canvas.width - 10, 35);
+        }, 
+        atualiza() {
+            const intervaloDeFrames = 30;
+            const passouOIntervalo = frames % intervaloDeFrames === 0;
+
+            if(passouOIntervalo) {
+                placar.pontuacao = placar.pontuacao + 1;
+            }
+        }
+    }
+}
+
 const Telas = {
     INICIO: {
         inicializa() {
@@ -295,11 +315,15 @@ const Telas = {
 };
 
 Telas.JOGO = {
+    inicializa() {
+        globais.placar = criaPlacar();
+    }, 
     desenha() {
         bck.desenha();
         globais.canos.desenha();
         globais.chao.desenha();
         globais.flappyBird.desenha();
+        globais.placar.desenha();
     }, 
     click() {
         globais.flappyBird.pula();
@@ -308,6 +332,7 @@ Telas.JOGO = {
         globais.chao.atualiza();
         globais.canos.atualiza();
         globais.flappyBird.atualiza();
+        globais.placar.atualiza();
     }
 };
 
