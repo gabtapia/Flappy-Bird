@@ -138,7 +138,7 @@ function mudaParaTela(novaTela) {
     telaAtiva = novaTela;
 
     if(telaAtiva.inicializa) {
-        inicializa();
+        telaAtiva.inicializa();
     }
 }
 
