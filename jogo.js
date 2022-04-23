@@ -45,11 +45,7 @@ function criaChao() {
         x: 0, 
         y: canvas.height - 112, 
         atualiza() {
-            const movimentoDoChao = 1;
-            const repeteEm = chao.largura / 2;
-            const movimentacao = chao.x - movimentoDoChao;
-
-            chao.x = movimentacao % repeteEm;
+            console.log('vamo mexer o chao');
         }, 
         desenha() {
             ctx.drawImage(
@@ -69,6 +65,7 @@ function criaChao() {
             );
         }
     }
+    return chao;
 }
 
 function fazColisao(flappyBird, chao) {
@@ -161,9 +158,8 @@ const Telas = {
         }, 
         desenha() {
             bck.desenha();
-            globais.flappyBird.desenha(); 
-
             globais.chao.desenha();
+            globais.flappyBird.desenha(); 
             msgGetReady.desenha();
         }, 
         click() {
