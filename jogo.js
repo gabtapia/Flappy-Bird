@@ -89,7 +89,7 @@ const msgGetReady = {
     largura: 174, 
     altura: 152, 
     x: (canvas.width / 2) - 174 / 2, 
-    y: canvas.height - 112, 
+    y: 50, 
     desenha() {
         ctx.drawImage(
             sprites, 
