@@ -164,23 +164,6 @@ const msgGetReady = {
     }
 }
 
-const msgGetReady = {
-    spriteX: 134, 
-    spriteY: 153, 
-    largura: 226, 
-    altura: 200, 
-    x: (canvas.width / 2) - 226 / 2, 
-    y: 50, 
-    desenha() {
-        ctx.drawImage(
-            sprites, 
-            msgGetReady.spriteX, msgGetReady.spriteY, 
-            msgGetReady.largura, msgGetReady.altura, 
-            msgGetReady.x, msgGetReady.y, 
-            msgGetReady.largura, msgGetReady.altura
-        );
-    }
-}
 const msgGameOver = {
     spriteX: 134, 
     spriteY: 153, 
