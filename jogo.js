@@ -248,7 +248,7 @@ function criaCanos() {
             const cabecaDoFlappy = globais.flappyBird.y;
             const peDoFlappy = globais.flappyBird.y + globais.flappyBird.altura;
             
-            if(globais.flappyBird.x >= par.x) {
+            if((globais.flappyBird.x + globais.flappyBird.largura) >= par.x) {
                 if(cabecaDoFlappy <= par.canoCeu.y) {
                     return true;
                 }
@@ -273,6 +273,7 @@ function criaCanos() {
                 par.x = par.x - 2;
 
                 if(canos.temColisaoComOFlappyBird(par)) {
+                    som_HIT.play();
                     mudaParaTela(Telas.GAME_OVER);
                 }
 
