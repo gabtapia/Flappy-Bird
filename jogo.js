@@ -102,9 +102,7 @@ function criaFlappyBird() {
             if(fazColisao(flappyBird, globais.chao)) {
                 som_HIT.play();
 
-                setTimeout(() => {
-                    mudaParaTela(Telas.INICIO);
-                }, 500)
+                mudaParaTela(Telas.GAME_OVER);
                 return;
             }
     
