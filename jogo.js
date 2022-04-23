@@ -1,4 +1,9 @@
 let frames = 0;
+
+const som_PONTO = new Audio();
+som_PONTO.src = './efeitos/ponto.wav'
+const som_PULO = new Audio();
+som_PONTO.src = './efeitos/pulo.wav'
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/hit.wav'
 
@@ -94,6 +99,7 @@ function criaFlappyBird() {
         y: 50, 
         pulo: 4.6, 
         pula() {
+            som_PULO.play();
             flappyBird.velocidade = - flappyBird.pulo;
         }, 
         gravidade: 0.25, 
@@ -301,6 +307,7 @@ function criaPlacar() {
             const passouOIntervalo = frames % intervaloDeFrames === 0;
 
             if(passouOIntervalo) {
+                som_PONTO.play();
                 placar.pontuacao = placar.pontuacao + 1;
             }
         }
