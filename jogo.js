@@ -71,7 +71,7 @@ const flappyBird = {
     atualiza() {
         flappyBird.velocidade = flappyBird.velocidade + flappyBird.gravidade;
         flappyBird.y =  flappyBird.y + flappyBird.velocidade;
-    }
+    }, 
     desenha() {
         ctx.drawImage(
             sprites, 
