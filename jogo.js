@@ -282,7 +282,7 @@ const Telas = {
         desenha() {
             bck.desenha();
             globais.flappyBird.desenha();
-            globais.canos.desenha();
+            globais.chao.desenha();
             msgGetReady.desenha();
         }, 
         click() {
@@ -297,7 +297,7 @@ const Telas = {
 Telas.JOGO = {
     desenha() {
         bck.desenha();
-        globais.chao.desenha();
+        globais.canos.desenha();
         globais.chao.desenha();
         globais.flappyBird.desenha();
     }, 
