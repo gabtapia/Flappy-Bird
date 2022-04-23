@@ -164,9 +164,42 @@ const msgGetReady = {
     }
 }
 
-//
-// Telas
-//
+const msgGetReady = {
+    spriteX: 134, 
+    spriteY: 153, 
+    largura: 226, 
+    altura: 200, 
+    x: (canvas.width / 2) - 226 / 2, 
+    y: 50, 
+    desenha() {
+        ctx.drawImage(
+            sprites, 
+            msgGetReady.spriteX, msgGetReady.spriteY, 
+            msgGetReady.largura, msgGetReady.altura, 
+            msgGetReady.x, msgGetReady.y, 
+            msgGetReady.largura, msgGetReady.altura
+        );
+    }
+}
+const msgGameOver = {
+    spriteX: 134, 
+    spriteY: 153, 
+    largura: 226, 
+    altura: 200, 
+    x: (canvas.width / 2) - 226 / 2, 
+    y: 50, 
+    desenha() {
+        ctx.drawImage(
+            sprites, 
+            msgGameOver.spriteX, msgGameOver.spriteY, 
+            msgGameOver.largura, msgGameOver.altura, 
+            msgGameOver.x, msgGameOver.y, 
+            msgGameOver.largura, msgGameOver.altura
+        );
+    }
+}
+
+
 const globais = {};
 let telaAtiva = {};
 function mudaParaTela(novaTela) {
@@ -293,6 +326,9 @@ function criaPlacar() {
     return placar;
 }
 
+//
+// Telas
+//
 const Telas = {
     INICIO: {
         inicializa() {
@@ -336,6 +372,23 @@ Telas.JOGO = {
         globais.placar.atualiza();
     }
 };
+
+Telas.GAME_OVER = {
+    desenha() {
+        msgGameOver.desenha();
+        bck.desenha();
+        globais.flappyBird.desenha();
+        globais.chao.desenha();
+    }, 
+    atualiza() {
+        bck.desenha();
+        globais.flappyBird.atualiza();
+        globais.chao.atualiza();
+    }, 
+    click() {
+        mudaParaTela(Telas.INICIO);
+    }
+}
 
 function loop() {
     telaAtiva.desenha();
