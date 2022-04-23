@@ -36,29 +36,38 @@ const bck = {
     }
 }
 
-const chao = {
-    spriteX: 0, 
-    spriteY: 610, 
-    largura: 224, 
-    altura: 112, 
-    x: 0, 
-    y: canvas.height - 112, 
-    desenha() {
-        ctx.drawImage(
-            sprites, 
-            chao.spriteX, chao.spriteY, 
-            chao.largura, chao.altura, 
-            chao.x, chao.y, 
-            chao.largura, chao.altura
-        );
+function criaChao() {
+    const chao = {
+        spriteX: 0, 
+        spriteY: 610, 
+        largura: 224, 
+        altura: 112, 
+        x: 0, 
+        y: canvas.height - 112, 
+        atualiza() {
+            const movimentoDoChao = 1;
+            const repeteEm = chao.largura / 2;
+            const movimentacao = chao.x - movimentoDoChao;
 
-        ctx.drawImage(
-            sprites, 
-            chao.spriteX, chao.spriteY, 
-            chao.largura, chao.altura, 
-            (chao.x + chao.largura), chao.y, 
-            chao.largura, chao.altura
-        );
+            chao.x = movimentacao % repeteEm;
+        }, 
+        desenha() {
+            ctx.drawImage(
+                sprites, 
+                chao.spriteX, chao.spriteY, 
+                chao.largura, chao.altura, 
+                chao.x, chao.y, 
+                chao.largura, chao.altura
+            );
+    
+            ctx.drawImage(
+                sprites, 
+                chao.spriteX, chao.spriteY, 
+                chao.largura, chao.altura, 
+                (chao.x + chao.largura), chao.y, 
+                chao.largura, chao.altura
+            );
+        }
     }
 }
 
@@ -83,16 +92,12 @@ function criaFlappyBird() {
         y: 50, 
         pulo: 4.6, 
         pula() {
-            console.log('devo pular');
-            console.log('[antes]', flappyBird.velocidade);
             flappyBird.velocidade = - flappyBird.pulo;
-            console.log('[depois]', flappyBird.velocidade);
         }, 
         gravidade: 0.25, 
         velocidade: 0, 
         atualiza() {
             if(fazColisao(flappyBird, chao)) {
-                console.log('Fez Colisao');
                 som_HIT.play();
 
                 setTimeout(() => {
@@ -152,10 +157,11 @@ const Telas = {
     INICIO: {
         inicializa() {
             globais.flappyBird = criaFlappyBird();
+            globais.chao = criaChao();
         }, 
         desenha() {
             bck.desenha();
-            chao.desenha();
+            globais.chao.desenha();
             globais.flappyBird.desenha(); 
             msgGetReady.desenha();
         }, 
@@ -163,7 +169,7 @@ const Telas = {
             mudaParaTela(Telas.JOGO);
         }, 
         atualiza() {
-
+            globais.chao.atualiza();
         }
     }
 };
