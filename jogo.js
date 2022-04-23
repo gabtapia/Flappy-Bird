@@ -97,7 +97,7 @@ function criaFlappyBird() {
         gravidade: 0.25, 
         velocidade: 0, 
         atualiza() {
-            if(fazColisao(flappyBird, chao)) {
+            if(fazColisao(flappyBird, globais.chao)) {
                 som_HIT.play();
 
                 setTimeout(() => {
@@ -185,6 +185,7 @@ Telas.JOGO = {
         globais.flappyBird.pula();
     }, 
     atualiza() {
+        globais.chao.atualiza();
         globais.flappyBird.atualiza();
     }
 };
