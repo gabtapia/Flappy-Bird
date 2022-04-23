@@ -128,6 +128,9 @@ const Telas = {
 
 Telas.JOGO = {
     desenha() {
+        bck.desenha();
+        chao.desenha();
+        flappyBird.desenha();
     }, 
     atualiza() {
         flappyBird.atualiza();
