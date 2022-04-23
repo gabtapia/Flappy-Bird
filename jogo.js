@@ -292,6 +292,7 @@ function criaCanos() {
 
 function criaPlacar() {
     const placar = {
+        melhor: 0, 
         pontuacao: 0, 
         desenha() {
             ctx.font = '35px "VT323"';
@@ -309,6 +310,12 @@ function criaPlacar() {
             }
         }
     }
+    if(pontuacao > melhor) {
+        console.log('[antes]' + melhor);
+        return melhor = pontuacao;
+        console.log('[depois]' + melhor)
+    }
+
     return placar;
 }
 
