@@ -279,7 +279,7 @@ function criaPlacar() {
             ctx.font = '35px "VT323"';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'white';
-            ctx.fillText(`Hello World ${placar.pontuacao}`, canvas.width - 10, 35);
+            ctx.fillText(`${placar.pontuacao}`, canvas.width - 10, 35);
         }, 
         atualiza() {
             const intervaloDeFrames = 30;
