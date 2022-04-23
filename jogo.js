@@ -306,7 +306,7 @@ Telas.JOGO = {
     }, 
     atualiza() {
         globais.chao.atualiza();
-        globais.chao.atualiza();
+        globais.canos.atualiza();
         globais.flappyBird.atualiza();
     }
 };
