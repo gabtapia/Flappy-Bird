@@ -328,13 +328,11 @@ function criaMelhor() {
             ctx.font = '40px "VT323"';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'white';
-            ctx.fillText(`${melhorPontuacao.melhor}`, canvas.width - 77, 195);
+            ctx.fillText(`${melhorPontuacao.melhor}`, canvas.width - 77, 193);
         }, 
         atualiza() {
             if(globais.placar.pontuacao > melhorPontuacao.melhor) {
-                console.log("[antes]" + melhorPontuacao.melhor);
                 melhorPontuacao.melhor = globais.placar.pontuacao;
-                console.log("[depois]" + melhorPontuacao.melhor);
             }
         }
     }
@@ -343,6 +341,7 @@ function criaMelhor() {
 }
 
 globais.melhorPontuacao = criaMelhor();
+globais.placar = criaPlacar();
 
 //
 // Telas
@@ -391,7 +390,6 @@ Telas.JOGO = {
         globais.melhorPontuacao.atualiza();
     }
 };
-globais.placar = criaPlacar();
 
 Telas.GAME_OVER = {
     desenha() {
