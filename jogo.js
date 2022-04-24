@@ -300,6 +300,12 @@ function criaPlacar(tamfont, pos1, pos2) {
             ctx.fillStyle = 'white';
             ctx.fillText(`${placar.pontuacao}`, canvas.width - pos1, pos2);
         }, 
+        desenhamelhor() {
+            ctx.font = tamfont;
+            ctx.textAlign = 'right';
+            ctx.fillStyle = 'white';
+            ctx.fillText(`${placar.melhor}`, canvas.width - pos1, pos2)
+        }, 
         atualiza() {
             const intervaloDeFrames = 150;
             const passouOIntervalo = frames % intervaloDeFrames === 0;
@@ -369,6 +375,7 @@ Telas.JOGO = {
 
 Telas.GAME_OVER = {
     desenha() {
+        globais.placar.desenhamelhor('10px "VT323"', 200, 100);
         msgGameOver.desenha();
     }, 
     atualiza() {
