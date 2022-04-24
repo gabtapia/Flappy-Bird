@@ -290,15 +290,15 @@ function criaCanos() {
     return canos;
 }
 
-function criaPlacar() {
+function criaPlacar(tamfont, pos1, pos2) {
     const placar = {
         melhor: 0, 
         pontuacao: 0, 
         desenha() {
-            ctx.font = '35px "VT323"';
+            ctx.font = tamfont;
             ctx.textAlign = 'right';
             ctx.fillStyle = 'white';
-            ctx.fillText(`${placar.pontuacao}`, canvas.width - 10, 35);
+            ctx.fillText(`${placar.pontuacao}`, canvas.width - pos1, pos2);
         }, 
         atualiza() {
             const intervaloDeFrames = 150;
@@ -312,9 +312,7 @@ function criaPlacar() {
                 som_PONTO.play();
             }
             if(pontuacao > melhor) {
-                console.log('[antes]' + melhor);
                 melhor = pontuacao;
-                console.log('[depois]' + melhor)
             }
         }
     }
@@ -349,7 +347,7 @@ const Telas = {
 
 Telas.JOGO = {
     inicializa() {
-        globais.placar = criaPlacar();
+        globais.placar = criaPlacar('35px "VT323"', 10, 35);
     }, 
     desenha() {
         bck.desenha();
