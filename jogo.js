@@ -342,6 +342,8 @@ function criaMelhor() {
     return melhorPontuacao;
 }
 
+globais.melhorPontuacao = criaMelhor();
+
 //
 // Telas
 //
