@@ -375,7 +375,7 @@ Telas.JOGO = {
 
 Telas.GAME_OVER = {
     inicializa() {
-        globais.placar = criaPlacar('10px "VT323"', 200, 100);
+        globais.placar = criaPlacar('10px "VT323"', 20, 45);
     }, 
     desenha() {
         msgGameOver.desenha();
