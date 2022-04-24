@@ -303,15 +303,18 @@ function criaPlacar() {
         atualiza() {
             const intervaloDeFrames = 150;
             const passouOIntervalo = frames % intervaloDeFrames === 0;
+            
+            const pontuacao = placar.pontuacao;
+            const melhor = placar.melhor;
 
             if(passouOIntervalo) {
-                placar.pontuacao = placar.pontuacao + 1;
+                pontuacao = pontuacao + 1;
                 som_PONTO.play();
             }
-            if(placar.pontuacao > placar.melhor) {
-                console.log('[antes]' + placar.melhor);
+            if(pontuacao > melhor) {
+                console.log('[antes]' + melhor);
                 return melhor = pontuacao;
-                console.log('[depois]' + placar.melhor)
+                console.log('[depois]' + melhor)
             }
         }
     }
