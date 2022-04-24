@@ -374,10 +374,13 @@ Telas.JOGO = {
 };
 
 Telas.GAME_OVER = {
-    desenha() {
-        globais.placar.desenhamelhor('10px "VT323"', 200, 100);
-        msgGameOver.desenha();
+    inicializa() {
+        globais.placar = criaPlacar('10px "VT323"', 200, 100);
     }, 
+    desenha() {
+        msgGameOver.desenha();
+        globais.placar.desenhamelhor();
+}, 
     atualiza() {
 
     }, 
