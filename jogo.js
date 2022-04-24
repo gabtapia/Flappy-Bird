@@ -308,7 +308,7 @@ function criaPlacar() {
                 placar.pontuacao = placar.pontuacao + 1;
                 som_PONTO.play();
             }
-            if(pontuacao > melhor) {
+            if(placar.pontuacao > placar.melhor) {
                 console.log('[antes]' + melhor);
                 return melhor = pontuacao;
                 console.log('[depois]' + melhor)
