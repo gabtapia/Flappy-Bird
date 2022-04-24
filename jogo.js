@@ -309,9 +309,9 @@ function criaPlacar() {
                 som_PONTO.play();
             }
             if(placar.pontuacao > placar.melhor) {
-                console.log('[antes]' + melhor);
+                console.log('[antes]' + placar.melhor);
                 return melhor = pontuacao;
-                console.log('[depois]' + melhor)
+                console.log('[depois]' + placar.melhor)
             }
         }
     }
