@@ -332,7 +332,7 @@ function criaMelhor() {
         }, 
         atualiza() {
             if(globais.placar.pontuacao > melhorPontuacao.melhor) {
-                globais.placar.pontuacao = melhorPontuacao.melhor;
+                melhorPontuacao.melhor = globais.placar.pontuacao;
                 console.log(melhorPontuacao.melhor);
             }
         }
