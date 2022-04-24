@@ -369,7 +369,6 @@ const Telas = {
 
 Telas.JOGO = {
     inicializa() {
-        globais.melhorPontuacao = criaMelhor();
         globais.placar = criaPlacar();
     }, 
     desenha() {
