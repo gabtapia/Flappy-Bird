@@ -304,8 +304,8 @@ function criaPlacar() {
             const intervaloDeFrames = 150;
             const passouOIntervalo = frames % intervaloDeFrames === 0;
             
-            const pontuacao = placar.pontuacao;
-            const melhor = placar.melhor;
+            let pontuacao = placar.pontuacao;
+            let melhor = placar.melhor;
 
             if(passouOIntervalo) {
                 placar.pontuacao = placar.pontuacao + 1;
