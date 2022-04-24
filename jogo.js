@@ -313,7 +313,7 @@ function criaPlacar() {
             }
             if(pontuacao > melhor) {
                 console.log('[antes]' + melhor);
-                return melhor = pontuacao;
+                melhor = pontuacao;
                 console.log('[depois]' + melhor)
             }
         }
