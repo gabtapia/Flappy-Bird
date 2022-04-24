@@ -394,6 +394,7 @@ Telas.JOGO = {
 Telas.GAME_OVER = {
     desenha() {
         msgGameOver.desenha();
+        globais.melhorPontuacao.desenha();
 }, 
     atualiza() {
 
