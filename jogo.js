@@ -1,13 +1,16 @@
 let frames = 0;
 
+// [Sons]
 const som_PONTO = new Audio();
 som_PONTO.src = './efeitos/ponto.wav';
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/hit.wav';
 
+// [Sprites]
 const sprites = new Image();
 sprites.src = './sprites.png';
 
+// [Canvas]
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -290,21 +293,14 @@ function criaCanos() {
     return canos;
 }
 
-function criaPlacar(tamfont, pos1, pos2) {
+function criaPlacar() {
     const placar = {
-        melhor: 0, 
         pontuacao: 0, 
         desenha() {
-            ctx.font = tamfont;
+            ctx.font = '35px "VT323"';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'white';
-            ctx.fillText(`${placar.pontuacao}`, canvas.width - pos1, pos2);
-        }, 
-        desenhamelhor() {
-            ctx.font = tamfont;
-            ctx.textAlign = 'right';
-            ctx.fillStyle = 'white';
-            ctx.fillText(`${placar.melhor}`, canvas.width - pos1, pos2)
+            ctx.fillText(`${placar.pontuacao}`, canvas.width - 10, 35);
         }, 
         atualiza() {
             const intervaloDeFrames = 150;
@@ -317,13 +313,32 @@ function criaPlacar(tamfont, pos1, pos2) {
                 placar.pontuacao = placar.pontuacao + 1;
                 som_PONTO.play();
             }
-            if(pontuacao > melhor) {
-                melhor = pontuacao;
-            }
         }
     }
 
     return placar;
+}
+
+function criaMelhor() {
+    globais.placar = criaPlacar();
+
+    const melhorPontuacao = {
+        melhor: 0, 
+        desenha() {
+            ctx.font = '10px "VT323"';
+            ctx.textAlign = 'right';
+            ctx.fillStyle = 'white';
+            ctx.fillText(`${melhorPontuacao.melhor}`, canvas.width - 20, 45);
+        }, 
+        atualiza() {
+            if(globais.placar.pontuacao > melhorPontuacao.melhor) {
+                globais.placar.pontuacao = melhorPontuacao.melhor;
+                console.log(melhorPontuacao.melhor);
+            }
+        }
+    }
+
+    return melhorPontuacao;
 }
 
 //
@@ -353,7 +368,8 @@ const Telas = {
 
 Telas.JOGO = {
     inicializa() {
-        globais.placar = criaPlacar('35px "VT323"', 10, 35);
+        globais.melhorPontuacao = criaMelhor();
+        globais.placar = criaPlacar();
     }, 
     desenha() {
         bck.desenha();
@@ -370,16 +386,13 @@ Telas.JOGO = {
         globais.canos.atualiza();
         globais.flappyBird.atualiza();
         globais.placar.atualiza();
+        globais.melhorPontuacao.atualiza();
     }
 };
 
 Telas.GAME_OVER = {
-    inicializa() {
-        globais.placar = criaPlacar('10px "VT323"', 20, 45);
-    }, 
     desenha() {
         msgGameOver.desenha();
-        globais.placar.desenhamelhor();
 }, 
     atualiza() {
 
