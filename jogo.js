@@ -296,11 +296,11 @@ function criaCanos() {
 function criaPlacar() {
     const placar = {
         pontuacao: 0, 
-        desenha() {
-            ctx.font = '35px "VT323"';
+        desenha(x, y) {
+            ctx.font = '40px "VT323"';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'white';
-            ctx.fillText(`${placar.pontuacao}`, canvas.width - 10, 35);
+            ctx.fillText(`${placar.pontuacao}`, canvas.width - x, y);
         }, 
         atualiza() {
             const intervaloDeFrames = 150;
@@ -378,7 +378,7 @@ Telas.JOGO = {
         globais.canos.desenha();
         globais.chao.desenha();
         globais.flappyBird.desenha();
-        globais.placar.desenha();
+        globais.placar.desenha(10, 35);
     }, 
     click() {
         globais.flappyBird.pula();
@@ -391,11 +391,14 @@ Telas.JOGO = {
         globais.melhorPontuacao.atualiza();
     }
 };
+globais.placar = criaPlacar();
 
 Telas.GAME_OVER = {
     desenha() {
         msgGameOver.desenha();
         globais.melhorPontuacao.desenha();
+        globais.placar.desenha(77, 150);
+
 }, 
     atualiza() {
 
