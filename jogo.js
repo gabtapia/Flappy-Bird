@@ -439,7 +439,7 @@ Telas.GAME_OVER = {
     desenha() {
         msgGameOver.desenha();
         globais.melhorPontuacao.desenha();
-        globais.placar.desenha(36, 150);
+        globais.placar.desenha(68, 150);
         globais.medalha.desenha();
     }, 
     atualiza() {
