@@ -133,7 +133,7 @@ class FlappyBird {
             { spriteX: 0, spriteY: 52 }, 
             { spriteX: 0, spriteY: 26 }, 
         ];
-        frameAtual = 0; 
+        this.frameAtual = 0; 
         function atualizaOFrameAtual() {
             const intervaloDeFrames = 10;
             const passouOIntervalo = frames % intervaloDeFrames === 0;
