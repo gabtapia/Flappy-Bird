@@ -166,18 +166,18 @@ function criaMedalhas() {
             let medalhaAtual
             
             if (globais.placar.pontuacao <= 5) {
-                return medalhaAtual = medalha.medalhas[0];
+                return medalhaAtual = 0;
             } else if (globais.placar.pontuacao > 5 && globais.placar.pontuacao <= 10) {
-                return medalhaAtual = medalha.medalhas[1];
+                return medalhaAtual = 1;
             } else if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
-                return medalhaAtual = medalha.medalhas[2];
+                return medalhaAtual = 2;
             } else if (globais.placar.pontuacao > 30) {
-                return medalhaAtual = medalha.medalhas[3];
+                return medalhaAtual = 3;
             }
             return medalhaAtual;
         }, 
         desenha() {
-            const { spriteX, spriteY } = medalha.medalhaAtual;
+            const { spriteX, spriteY } = medalha.medalhas[medalhaAtual];
 
             ctx.drawImage(
                 sprites, 
