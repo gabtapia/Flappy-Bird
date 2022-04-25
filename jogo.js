@@ -167,13 +167,13 @@ function criaMedalhas() {
             if (globais.placar.pontuacao <= 3) {
                 return medalha.medalhaAtual = 0;
             }
-            if (globais.placar.pontuacao > 3 && globais.placar.pontuacao <= 10) {
+            if (globais.placar.pontuacao > 3 && globais.placar.pontuacao <= 7) {
                 return medalha.medalhaAtual = 1;
             }
-            if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
+            if (globais.placar.pontuacao > 7 && globais.placar.pontuacao <= 15) {
                 return medalha.medalhaAtual = 2;
             }
-            if (globais.placar.pontuacao > 30) {
+            if (globais.placar.pontuacao > 15) {
                 return medalha.medalhaAtual = 3;
             }
         }, 
@@ -443,7 +443,7 @@ Telas.GAME_OVER = {
         globais.medalha.desenha();
     }, 
     atualiza() {
-
+        globais.medalha.atualiza();
     }, 
     click() {
         mudaParaTela(Telas.INICIO);
