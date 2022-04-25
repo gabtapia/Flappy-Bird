@@ -150,6 +150,47 @@ function criaFlappyBird() {
     return flappyBird;
 }
 
+function criaMedalhas() {
+    const medalha = {
+        largura: 44,
+        altura: 44, 
+        x: 150, 
+        y: 200, 
+        medalhas: [
+            { spriteX: 48, spriteY: 124 }, 
+            { spriteX: 48, spriteY: 78 }, 
+            { spriteX: 0, spriteY: 78 }, 
+            { spriteX: 0, spriteY: 124 }
+        ], 
+        atualiza() {
+            let medalhaAtual
+            
+            if (globais.placar.pontuacao <= 5) {
+                medalhaAtual = medalha.medalhas[0];
+            } else if (globais.placar.pontuacao > 5 && globais.placar.pontuacao <= 10) {
+                medalhaAtual = medalha.medalhas[1];
+            } else if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
+                medalhaAtual = medalha.medalhas[2];
+            } else if (globais.placar.pontuacao > 30) {
+                medalhaAtual = medalha.medalhas[3];
+            }
+        }, 
+        desenha() {
+            const { spriteX, spriteY } = medalha.medalhaAtual;
+
+            ctx.drawImage(
+                sprites, 
+                spriteX, spriteY, 
+                medalha.largura, medalha.altura, 
+                medalha.x, medalha.y, 
+                medalha.largura, medalha.altura
+            );
+        }
+    }
+    
+    return medalha;
+}
+
 const msgGetReady = {
     spriteX: 134, 
     spriteY: 0, 
