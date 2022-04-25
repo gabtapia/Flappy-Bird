@@ -166,11 +166,14 @@ function criaMedalhas() {
         atualiza() {            
             if (globais.placar.pontuacao <= 5) {
                 medalha.medalhaAtual = 0;
-            } else if (globais.placar.pontuacao > 5 && globais.placar.pontuacao <= 10) {
+            }
+            if (globais.placar.pontuacao > 5 && globais.placar.pontuacao <= 10) {
                 medalha.medalhaAtual = 1;
-            } else if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
+            }
+            if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
                 medalha.medalhaAtual = 2;
-            } else if (globais.placar.pontuacao > 30) {
+            }
+            if (globais.placar.pontuacao > 30) {
                 medalha.medalhaAtual = 3;
             }
         }, 
