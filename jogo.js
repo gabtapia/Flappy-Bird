@@ -178,7 +178,7 @@ function criaMedalhas() {
             }
         }, 
         desenha() {
-            const { spriteX, spriteY } = medalha.medalhas[medalhaAtual];
+            const { spriteX, spriteY } = medalha.medalhas[medalha.medalhaAtual];
 
             ctx.drawImage(
                 sprites, 
