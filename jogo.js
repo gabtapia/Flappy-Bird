@@ -156,28 +156,26 @@ function criaMedalhas() {
         altura: 44, 
         x: 150, 
         y: 200, 
+        medalhaAtual: 0, 
         medalhas: [
             { spriteX: 48, spriteY: 124 }, 
             { spriteX: 48, spriteY: 78 }, 
             { spriteX: 0, spriteY: 78 }, 
             { spriteX: 0, spriteY: 124 }
         ], 
-        atualiza() {
-            let medalhaAtual
-            
+        atualiza() {            
             if (globais.placar.pontuacao <= 5) {
-                return medalhaAtual = 0;
+                medalha.medalhaAtual = 0;
             } else if (globais.placar.pontuacao > 5 && globais.placar.pontuacao <= 10) {
-                return medalhaAtual = 1;
+                medalha.medalhaAtual = 1;
             } else if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
-                return medalhaAtual = 2;
+                medalha.medalhaAtual = 2;
             } else if (globais.placar.pontuacao > 30) {
-                return medalhaAtual = 3;
+                medalha.medalhaAtual = 3;
             }
-            return medalhaAtual;
         }, 
         desenha() {
-            const { spriteX, spriteY } = medalha.medalhas[medalhaAtual];
+            const { spriteX, spriteY } = medalha.medalhas[medalha.medalhaAtual];
 
             ctx.drawImage(
                 sprites, 
