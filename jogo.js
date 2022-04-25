@@ -5,6 +5,9 @@ const som_PONTO = new Audio();
 som_PONTO.src = './efeitos/ponto.wav';
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/hit.wav';
+const som_FUNDO = new Audio();
+som_FUNDO.src = './efeitos/fundo.wav';
+som_FUNDO.loop = true;
 
 /* [Sprites] */
 const sprites = new Image();
@@ -510,6 +513,7 @@ function criaMelhor() {
 function loop() {
     telaAtiva.desenha();
     telaAtiva.atualiza();
+    som_FUNDO.play();
 
     frames += 1;
     requestAnimationFrame(loop);
