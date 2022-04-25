@@ -154,8 +154,8 @@ function criaMedalhas() {
     const medalha = {
         largura: 44,
         altura: 44, 
-        x: 75, 
-        y: 150, 
+        x: 73, 
+        y: 136, 
         medalhaAtual: 0, 
         medalhas: [
             { spriteX: 48, spriteY: 124 }, 
