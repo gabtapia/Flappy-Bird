@@ -154,8 +154,8 @@ function criaMedalhas() {
     const medalha = {
         largura: 44,
         altura: 44, 
-        x: 150, 
-        y: 200, 
+        x: 75, 
+        y: 150, 
         medalhaAtual: 0, 
         medalhas: [
             { spriteX: 48, spriteY: 124 }, 
@@ -439,7 +439,7 @@ Telas.GAME_OVER = {
     desenha() {
         msgGameOver.desenha();
         globais.melhorPontuacao.desenha();
-        globais.placar.desenha(77, 150);
+        globais.placar.desenha(36, 150);
         globais.medalha.desenha();
     }, 
     atualiza() {
