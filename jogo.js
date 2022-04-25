@@ -164,10 +164,10 @@ function criaMedalhas() {
             { spriteX: 0, spriteY: 124 }
         ], 
         atualiza() {            
-            if (globais.placar.pontuacao <= 5) {
+            if (globais.placar.pontuacao <= 3) {
                 medalhaAtual = 0;
             }
-            if (globais.placar.pontuacao > 5 && globais.placar.pontuacao <= 10) {
+            if (globais.placar.pontuacao > 3 && globais.placar.pontuacao <= 10) {
                 medalhaAtual = 1;
             }
             if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
