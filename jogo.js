@@ -127,7 +127,7 @@ class FlappyBird {
             this.velocidade = this.velocidade + this.gravidade;
             this.y =  this.y + this.velocidade;
         }
-        movimentos = [
+        this.movimentos = [
             { spriteX: 0, spriteY: 0 }, 
             { spriteX: 0, spriteY: 26 }, 
             { spriteX: 0, spriteY: 52 }, 
