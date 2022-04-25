@@ -165,16 +165,16 @@ function criaMedalhas() {
         ], 
         atualiza() {            
             if (globais.placar.pontuacao <= 3) {
-                medalha.medalhaAtual = 0;
+                return medalha.medalhaAtual = 0;
             }
             if (globais.placar.pontuacao > 3 && globais.placar.pontuacao <= 10) {
-                medalha.medalhaAtual = 1;
+                return medalha.medalhaAtual = 1;
             }
             if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
-                medalha.medalhaAtual = 2;
+                return medalha.medalhaAtual = 2;
             }
             if (globais.placar.pontuacao > 30) {
-                medalha.medalhaAtual = 3;
+                return medalha.medalhaAtual = 3;
             }
         }, 
         desenha() {
