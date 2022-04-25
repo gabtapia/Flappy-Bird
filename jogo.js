@@ -383,6 +383,7 @@ function criaMelhor() {
 
 globais.melhorPontuacao = criaMelhor();
 globais.placar = criaPlacar();
+globais.medalha = criaMedalhas();
 
 //
 // Telas
@@ -437,8 +438,8 @@ Telas.GAME_OVER = {
         msgGameOver.desenha();
         globais.melhorPontuacao.desenha();
         globais.placar.desenha(77, 150);
-
-}, 
+        globais.medalha.desenha();
+    }, 
     atualiza() {
 
     }, 
