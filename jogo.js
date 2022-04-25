@@ -151,12 +151,12 @@ function criaFlappyBird() {
 }
 
 function criaMedalhas() {
-    let medalhaAtual = 0;
     const medalha = {
         largura: 44,
         altura: 44, 
         x: 150, 
         y: 200, 
+        medalhaAtual: 0, 
         medalhas: [
             { spriteX: 48, spriteY: 124 }, 
             { spriteX: 48, spriteY: 78 }, 
@@ -165,16 +165,16 @@ function criaMedalhas() {
         ], 
         atualiza() {            
             if (globais.placar.pontuacao <= 3) {
-                medalhaAtual = 0;
+                medalha.medalhaAtual = 0;
             }
             if (globais.placar.pontuacao > 3 && globais.placar.pontuacao <= 10) {
-                medalhaAtual = 1;
+                medalha.medalhaAtual = 1;
             }
             if (globais.placar.pontuacao > 10 && globais.placar.pontuacao <= 30) {
-                medalhaAtual = 2;
+                medalha.medalhaAtual = 2;
             }
             if (globais.placar.pontuacao > 30) {
-                medalhaAtual = 3;
+                medalha.medalhaAtual = 3;
             }
         }, 
         desenha() {
