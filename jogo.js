@@ -404,7 +404,7 @@ function mudaParaTela(novaTela) {
 const Telas = {
     INICIO: {
         inicializa() {
-            globais.flappyBird = criaFlappyBird();
+            flappyBird = new FlappyBird();
             globais.chao = criaChao();
             globais.canos = criaCanos();
         }, 
