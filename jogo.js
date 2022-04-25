@@ -371,7 +371,7 @@ function criaMelhor() {
             ctx.font = '40px "VT323"';
             ctx.textAlign = 'right';
             ctx.fillStyle = 'white';
-            ctx.fillText(`${melhorPontuacao.melhor}`, canvas.width - 77, 193);
+            ctx.fillText(`${melhorPontuacao.melhor}`, canvas.width - 68, 193);
         }, 
         atualiza() {
             if(globais.placar.pontuacao > melhorPontuacao.melhor) {
