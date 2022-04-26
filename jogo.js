@@ -160,6 +160,7 @@ class FlappyBird {
         }
     }
 }
+let flappyBird = new FlappyBird();
 
 function criaCanos() {
     const canos = {
@@ -215,10 +216,10 @@ function criaCanos() {
 
         }, 
         temColisaoComOFlappyBird(par) {
-            const cabecaDoFlappy = globais.flappyBird.y;
-            const peDoFlappy = globais.flappyBird.y + globais.flappyBird.altura;
+            const cabecaDoFlappy = flappyBird.y;
+            const peDoFlappy = flappyBird.y + flappyBird.altura;
             
-            if((globais.flappyBird.x + globais.flappyBird.largura) >= par.x) {
+            if((flappyBird.x + flappyBird.largura) >= par.x) {
                 if(cabecaDoFlappy <= par.canoCeu.y) {
                     return true;
                 }
@@ -404,13 +405,12 @@ function mudaParaTela(novaTela) {
 const Telas = {
     INICIO: {
         inicializa() {
-            flappyBird = new FlappyBird();
             globais.chao = criaChao();
             globais.canos = criaCanos();
         }, 
         desenha() {
             bck.desenha();
-            globais.flappyBird.desenha();
+            flappyBird.desenha();
             globais.chao.desenha();
             msgGetReady.desenha();
         }, 
@@ -431,16 +431,16 @@ Telas.JOGO = {
         bck.desenha();
         globais.canos.desenha();
         globais.chao.desenha();
-        globais.flappyBird.desenha();
+        flappyBird.desenha();
         globais.placar.desenha(10, 35);
     }, 
     click() {
-        globais.flappyBird.pula();
+        flappyBird.pula();
     }, 
     atualiza() {
         globais.chao.atualiza();
         globais.canos.atualiza();
-        globais.flappyBird.atualiza();
+        flappyBird.atualiza();
         globais.placar.atualiza();
         globais.melhorPontuacao.atualiza();
     }
