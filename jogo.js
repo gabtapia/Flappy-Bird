@@ -102,65 +102,65 @@ function fazColisao(flappyBird, chao) {
 }
 
 /* [Objetos] */
-class FlappyBird {
-    constructor() {
-        this.spriteX = 0;
-        this.spriteY = 0;
-        this.largura = 33; 
-        this.altura = 24;
-        this.x = 10;
-        this.y = 50; 
-        this.pulo = 4.6; 
-        function pula() {
-            this.velocidade = - this.pulo;
-        }
-        this.gravidade = 0.25;
-        this.velocidade = 0;
-        function atualiza() {
+function criaFlappyBird() {
+    const flappyBird = {
+        spriteX: 0, 
+        spriteY: 0, 
+        largura: 33, 
+        altura: 24, 
+        x: 10, 
+        y: 50, 
+        pulo: 4.6, 
+        pula() {
+            flappyBird.velocidade = - flappyBird.pulo;
+        }, 
+        gravidade: 0.25, 
+        velocidade: 0, 
+        atualiza() {
             if(fazColisao(flappyBird, globais.chao)) {
                 som_HIT.play();
 
                 mudaParaTela(Telas.GAME_OVER);
                 return;
             }
-    
-            this.velocidade = this.velocidade + this.gravidade;
-            this.y =  this.y + this.velocidade;
-        }
-        this.movimentos = [
+
+            flappyBird.velocidade = flappyBird.velocidade + flappyBird.gravidade;
+            flappyBird.y =  flappyBird.y + flappyBird.velocidade;
+        }, 
+        movimentos: [
             { spriteX: 0, spriteY: 0 }, 
             { spriteX: 0, spriteY: 26 }, 
             { spriteX: 0, spriteY: 52 }, 
             { spriteX: 0, spriteY: 26 }, 
-        ];
-        this.frameAtual = 0; 
-        function atualizaOFrameAtual() {
+        ], 
+        frameAtual: 0, 
+        atualizaOFrameAtual() {
             const intervaloDeFrames = 10;
             const passouOIntervalo = frames % intervaloDeFrames === 0;
 
             if(passouOIntervalo) {
                 const baseDoIncremento = 1;
-                const incremento = baseDoIncremento + this.frameAtual;
-                const baseRepeticao = this.movimentos.length;
-                this.frameAtual = incremento % baseRepeticao;
+                const incremento = baseDoIncremento + flappyBird.frameAtual;
+                const baseRepeticao = flappyBird.movimentos.length;
+                flappyBird.frameAtual = incremento % baseRepeticao;
             }
 
-        }
-        function desenha() {
-            atualizaOFrameAtual();
-            const { spriteX, spriteY } = this.movimentos[this.frameAtual];
+        }, 
+        desenha() {
+            flappyBird.atualizaOFrameAtual();
+            const { spriteX, spriteY } = flappyBird.movimentos[flappyBird.frameAtual];
 
             ctx.drawImage(
                 sprites, 
                 spriteX, spriteY, 
-                this.largura, this.altura, 
-                this.x, this.y, 
-                this.largura, this.altura
+                flappyBird.largura, flappyBird.altura, 
+                flappyBird.x, flappyBird.y, 
+                flappyBird.largura, flappyBird.altura
             );
         }
     }
+    return flappyBird;
 }
-let flappyBird = new FlappyBird();
 
 function criaCanos() {
     const canos = {
@@ -216,10 +216,10 @@ function criaCanos() {
 
         }, 
         temColisaoComOFlappyBird(par) {
-            const cabecaDoFlappy = flappyBird.y;
-            const peDoFlappy = flappyBird.y + flappyBird.altura;
-            
-            if((flappyBird.x + flappyBird.largura) >= par.x) {
+            const cabecaDoFlappy = globais.flappyBird.y;
+            const peDoFlappy = globais.flappyBird.y + globais.flappyBird.altura;
+
+            if((globais.flappyBird.x + globais.flappyBird.largura) >= par.x) {
                 if(cabecaDoFlappy <= par.canoCeu.y) {
                     return true;
                 }
@@ -405,12 +405,13 @@ function mudaParaTela(novaTela) {
 const Telas = {
     INICIO: {
         inicializa() {
+            globais.flappyBird = criaFlappyBird();
             globais.chao = criaChao();
             globais.canos = criaCanos();
         }, 
         desenha() {
             bck.desenha();
-            flappyBird.desenha();
+            globais.flappyBird.desenha();
             globais.chao.desenha();
             msgGetReady.desenha();
         }, 
@@ -431,16 +432,16 @@ Telas.JOGO = {
         bck.desenha();
         globais.canos.desenha();
         globais.chao.desenha();
-        flappyBird.desenha();
+        globais.flappyBird.desenha();
         globais.placar.desenha(10, 35);
     }, 
     click() {
-        flappyBird.pula();
+        globais.flappyBird.pula();
     }, 
     atualiza() {
         globais.chao.atualiza();
         globais.canos.atualiza();
-        flappyBird.atualiza();
+        globais.flappyBird.atualiza();
         globais.placar.atualiza();
         globais.melhorPontuacao.atualiza();
     }
