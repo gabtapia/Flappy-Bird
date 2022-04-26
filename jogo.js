@@ -147,7 +147,7 @@ class FlappyBird {
 
         }
         function desenha() {
-            this.atualizaOFrameAtual();
+            atualizaOFrameAtual();
             const { spriteX, spriteY } = this.movimentos[this.frameAtual];
 
             ctx.drawImage(
